@@ -1,0 +1,32 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: api-route
+  namespace: demo
+spec:
+  parentRefs:
+    - name: your-gateway-name
+      namespace: gateway-namespace
+  rules:
+    - backendRefs:
+        - name: your-backend-service
+          port: 80
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: BackendTrafficPolicy
+metadata:
+  name: basic-rate-limit
+  namespace: demo
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: api-route
+  rateLimit:
+    type: Global
+    global:
+      rules:
+        - clientSelectors: []
+          limit:
+            requests: 5
+            unit: Minute

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-good
+  labels:
+    app: nginx-good
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-good
+  template:
+    metadata:
+      labels:
+        app: nginx-good
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19.8
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
