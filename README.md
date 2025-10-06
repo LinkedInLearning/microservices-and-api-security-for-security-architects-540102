@@ -22,14 +22,20 @@ To resolve this issue:
     Add changes to git using this command: git add .
 	Commit changes using this command: git commit -m "some message"
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- kubectl
-    - helm
-    - istioctl
-The course demos are prepared to be run in GitHub Codespaces. Your mileage may vary when using other environments.
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. Follow along with the course demonstration videos. 
+## Prerequisites and Setup
+1. **Required Tools**: Before starting, ensure you have these tools installed and configured:
+	- **kubectl** - Kubernetes command-line tool for cluster management
+    - **helm** - Kubernetes package manager for installing applications
+    - **istioctl** - Istio service mesh command-line tool
+The course demos are optimized for **GitHub Codespaces**, which provides a pre-configured environment with tools like bash and az cli already installed.
+
+2. **Kubernetes Cluster**: You'll need access to a running Kubernetes cluster. Depending on where you host your Kubernetes cluster, some adjustments may be needed.
+
+3. **Getting Started**:
+   - Clone this repository to your local machine or open it in GitHub Codespaces
+   - Navigate to the specific chapter folders (e.g., `3_4 rate limiting/`, `4_4 istio/`, `5_3 kyverno/`) for each demo
+   - Follow along with the course demonstration videos.
+
 
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
