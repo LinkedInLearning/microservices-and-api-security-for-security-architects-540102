@@ -1,0 +1,14 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: egress-gateway-access
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-egressgateway
+  action: ALLOW
+  rules:
+  - from:
+    - source:x
+        namespaces: ["egress-demo"]

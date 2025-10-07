@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-bad
+  labels:
+    app: nginx-bad
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-bad
+  template:
+    metadata:
+      labels:
+        app: nginx-bad
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.19.8
